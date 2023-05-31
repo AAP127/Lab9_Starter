@@ -87,6 +87,16 @@
     </section>
   </main>
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "00c65a16468448c49b6a478bc15cce50"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+    TrackJS.track();
+  </script>
+  
+
   <script>
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
@@ -149,6 +159,8 @@
     }
     
     //Step 3
+    TrackJS.track()
+
     function multiplier(multiplicand){
       if(typeof(multiplicand) != "number"){
           throw new Error("Multiplicand must be a valid number");
@@ -165,8 +177,7 @@
     finally{
       console.log("Finished.")
     }
-
-
+    
     //Step 4
     class NumberError extends Error{
       constructor(message){
@@ -215,17 +226,10 @@
     }
     
 
+    //Step 5 Global Error
     function console_global_error(){
-
+      multiplier("three");
     }
-
-
-
-
-
-  
-  
-  
   </script>
 </body>
 
