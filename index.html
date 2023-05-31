@@ -150,25 +150,70 @@
     
     //Step 3
     function multiplier(multiplicand){
-      let newArr = [3,56,6];
-      return newArr[multiplicand];
-      //return multiplicand*2;
+      if(typeof(multiplicand) != "number"){
+          throw new Error("Multiplicand must be a valid number");
+      }
+      return multiplicand*2;
     }
 
-    console.log(multiplier());
     try{
-      console.log(multiplier());
+      multiplier("three");
     }
     catch(err){
       console.log("multiplier returned an error");
     }
+    finally{
+      console.log("Finished.")
+    }
 
 
+    //Step 4
+    class NumberError extends Error{
+      constructor(message){
+        super(message);
+        this.name = "NumberError";
+      }
+    }
 
+    function confirmNumAbove10(numCandidate){
+      let candidateType = typeof(numCandidate);
+      let candidateIsNum = (candidateType == "number");
 
+      if(!candidateIsNum){
+        throw new NumberError("Candidate is not a number");
+      }
 
+      if(numCandidate < 11){
+        throw new NumberError("Number is not greater than 10");
+      }
 
+      return numCandidate;
+    }
 
+    try{
+      let newInputNum = confirmNumAbove10("twelve");
+    }
+    catch (err){
+      if (err instanceof NumberError){
+        console.warn("Issue with input:" + err.message);
+      }
+      else{
+        throw err;
+      }
+    }
+
+    try{
+      let newInputNum = confirmNumAbove10(1);
+    }
+    catch (err){
+      if (err instanceof NumberError){
+        console.warn("Issue with input:" + err.message);
+      }
+      else{
+        throw err;
+      }
+    }
+    
 
     function console_global_error(){
 
