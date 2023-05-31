@@ -69,21 +69,21 @@
     </form>
 
     <section id="error-btns">
-      <button>Console Log</button>
-      <button>Console Error</button>
-      <button>Console Count</button>
-      <button>Console Warn</button>
-      <button>Console Assert</button>
-      <button>Console Clear</button>
-      <button>Console Dir</button>
-      <button>Console dirxml</button>
-      <button>Console Group Start</button>
-      <button>Console Group End</button>
-      <button>Console Table</button>
-      <button>Start Timer</button>
-      <button>End Timer</button>
-      <button>Console Trace</button>
-      <button>Trigger a Global Error</button>
+      <button onclick="console_log()">Console Log</button>
+      <button onclick="console_error()">Console Error</button>
+      <button onclick="console_count()">Console Count</button>
+      <button onclick="console_warn()">Console Warn</button>
+      <button onclick="console_assert()">Console Assert</button>
+      <button onclick="console_clear()">Console Clear</button>
+      <button onclick="console_dir()">Console Dir</button>
+      <button onclick="console_dirxml()">Console dirxml</button>
+      <button onclick="console_group_start()">Console Group Start</button>
+      <button onclick="console_group_end()">Console Group End</button>
+      <button onclick="console_table()">Console Table</button>
+      <button onclick="console_start_timer()">Start Timer</button>
+      <button onclick="console_end_timer()">End Timer</button>
+      <button onclick="console_trace()">Console Trace</button>
+      <button onclick="console_global_error()">Trigger a Global Error</button>
     </section>
   </main>
 
@@ -102,6 +102,85 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    
+    //Step 2
+    function console_log(){
+      console.log("Console Logging demo");
+    }
+    function console_error(){
+      console.error("Demo of logging an error");
+    }
+    function console_count(){
+      console.count("demo");
+    }
+    function console_warn(){
+      console.warn("Demo of console warning")
+    }
+    function console_assert(){
+      let testAssert = true;
+      console.assert(testAssert== false, "testAssert not false: Demo of assertion");
+    }
+    function console_clear(){
+      console.clear();
+    }    
+    function console_dir(){
+      console.dir(errorBtns[6]);
+    }
+    function console_dirxml(){
+      console.dirxml(errorBtns[6]);
+    }
+    function console_group_start(){
+      console.group();
+    }
+    function console_group_end(){
+      console.groupEnd();
+    }
+    function console_table(){
+      console.table(errorBtns);
+    }
+    function console_start_timer(){
+      console.time();
+    }
+    function console_end_timer(){
+      console.timeEnd();
+    }
+    function console_trace(){
+      console.trace();
+    }
+    
+    //Step 3
+    function multiplier(multiplicand){
+      let newArr = [3,56,6];
+      return newArr[multiplicand];
+      //return multiplicand*2;
+    }
+
+    console.log(multiplier());
+    try{
+      console.log(multiplier());
+    }
+    catch(err){
+      console.log("multiplier returned an error");
+    }
+
+
+
+
+
+
+
+
+    function console_global_error(){
+
+    }
+
+
+
+
+
+  
+  
+  
   </script>
 </body>
 
